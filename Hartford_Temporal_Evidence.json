@@ -1,0 +1,93 @@
+{
+  "title": "Hartford Temporal Evidence",
+  "benchmark_version": "1.0",
+  "scope": {
+    "affected_record": "Hartford_Medication_Transitions.jsonl",
+    "affected_source_field": "workstation_id",
+    "affected_source_value": "MED-WS-11",
+    "material_event": "VERIFIED_FOR_ADMINISTRATION",
+    "constraints_are_cumulative": true,
+    "record_linkage_key": "med_event_id"
+  },
+  "composition_rule": "Each applicable temporal constraint defines a closed admissible event-time interval. When more than one published constraint applies to the same event, the admissible event-time interval is the intersection of all applicable intervals.",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "introduced_at_stage": "S1",
+      "applies_when": "recorded verification timestamp is before 2026-08-15T17:10:00Z",
+      "valid_from_utc": "2026-08-15T00:00:00Z",
+      "valid_to_utc_inclusive": "2026-08-15T17:09:59.999999Z",
+      "anchor_utc": "2026-08-15T09:00:00Z",
+      "offset_bound_seconds": 0.2,
+      "rate_bound_ppm": 100
+    },
+    {
+      "evidence_id": "E2",
+      "introduced_at_stage": "S2",
+      "applies_when": "recorded verification timestamp is at or after 2026-08-15T17:10:00Z",
+      "valid_from_utc": "2026-08-15T17:10:00Z",
+      "valid_to_utc_inclusive": "2026-08-16T00:00:00Z",
+      "anchor_utc": "2026-08-15T17:10:00Z",
+      "offset_bound_seconds": 3.2,
+      "rate_bound_ppm": 60
+    },
+    {
+      "evidence_id": "E3",
+      "introduced_at_stage": "S3",
+      "applies_when": "recorded verification timestamp is at or after 2026-08-15T17:10:00Z",
+      "valid_from_utc": "2026-08-15T17:10:00Z",
+      "valid_to_utc_inclusive": "2026-08-16T00:00:00Z",
+      "anchor_utc": "2026-08-15T17:10:00Z",
+      "offset_bound_seconds": 2.4,
+      "rate_bound_ppm": 60
+    },
+    {
+      "evidence_id": "E4",
+      "introduced_at_stage": "S4",
+      "applies_when": "recorded verification timestamp is before 2026-08-15T17:10:00Z",
+      "valid_from_utc": "2026-08-15T00:00:00Z",
+      "valid_to_utc_inclusive": "2026-08-15T17:09:59.999999Z",
+      "anchor_utc": "2026-08-15T17:10:00Z",
+      "offset_bound_seconds": 1.25,
+      "rate_bound_ppm": 40
+    },
+    {
+      "evidence_id": "E5",
+      "introduced_at_stage": "S5",
+      "applies_when": "recorded verification timestamp is before 2026-08-15T17:10:00Z",
+      "valid_from_utc": "2026-08-15T00:00:00Z",
+      "valid_to_utc_inclusive": "2026-08-15T17:09:59.999999Z",
+      "anchor_utc": "2026-08-15T16:59:30Z",
+      "offset_bound_seconds": 0.05,
+      "rate_bound_ppm": 40
+    }
+  ],
+  "stage_admission": {
+    "S0": [],
+    "S1": [
+      "E1"
+    ],
+    "S2": [
+      "E1",
+      "E2"
+    ],
+    "S3": [
+      "E1",
+      "E2",
+      "E3"
+    ],
+    "S4": [
+      "E1",
+      "E2",
+      "E3",
+      "E4"
+    ],
+    "S5": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5"
+    ]
+  }
+}
