@@ -41,7 +41,7 @@ The benchmark evaluates the published classifications under the stated evidence,
 
 ## Archive
 
-The immutable archival copy of Hartford Logic Benchmark v1.0 is deposited with Zenodo under DOI 10.5281/zenodo.22730361.
+The immutable archival copy of Hartford Logic Benchmark v1.0 is deposited with Zenodo under DOI 10.5281/zenodo.22730362.
 
 ## Hartford Logic
 
